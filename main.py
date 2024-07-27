@@ -18,6 +18,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/healthcheck")
+async def read_health_check():
+    return "Healthy", 200
+
 
 @app.get("/")
 async def read_root():
